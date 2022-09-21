@@ -22,7 +22,7 @@ jobs:
         # This assumes your book is in the root of your repository.
         # Just add a `cd` here if you need to change to another directory.
         #mdbook build
-        make
+        make book
         git worktree add gh-pages
         git config user.name "Deploy from CI"
         git config user.email ""
