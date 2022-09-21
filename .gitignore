@@ -1,0 +1,7 @@
+# obsidian
+.obsidian/
+.trash/
+
+# mdbook
+book/
+notes/SUMMARY.md

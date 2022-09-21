@@ -1,0 +1,12 @@
+[book]
+title = "ETH Atomic Notes"
+authors = ["Leon Hernandez"]
+language = "en"
+multilingual = false
+src = "notes"
+
+[build]
+#create-missing = false
+
+[output.html]
+mathjax-support = true
