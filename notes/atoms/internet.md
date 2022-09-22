@@ -1,9 +1,10 @@
-# Connecting to ETH internet
+# ETH internet
 
-Follow these instructions:
-https://unlimited.ethz.ch/display/itkb/Wi-Fi#WiFi-Students
+## Connecting to ETH internet
 
-## Troubleshooting on linux
+[IT knowledge base](https://unlimited.ethz.ch/display/itkb/Wi-Fi#WiFi-Students)
+
+### linux
 
 The script might not work with `NetworkManager`.
 It will ask to create a conf file for wpa_supplicant instead.
@@ -52,3 +53,15 @@ e.g:
 ``` bash
 systemctl start NetworkManager
 ```
+
+## VPN
+
+[IT knowledge Base](https://unlimited.ethz.ch/display/itkb/VPN)
+
+### linux
+
+Download super sketch shell script as described [here](https://unlimited.ethz.ch/display/itkb/VPN)
+
+Binary will be installed to `/opt/cisco/anyconnect`
+
+Execute it and use `sslvpn.ethz.ch/student-net` to connect to
