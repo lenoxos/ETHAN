@@ -1,5 +1,6 @@
 # Linear Algebra
 
-## übungen
+
+## exercise groups
 
 ![gruppen](./images/linalggruppen.png)
