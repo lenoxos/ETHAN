@@ -13,7 +13,6 @@ Here's how to use it:
 
 Kill `NetworkManager`
 
-> systemd
 ``` bash
 systemctl stop NetworkManager
 ```

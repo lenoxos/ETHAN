@@ -1,9 +1,5 @@
 # ETH Atomic Notes
 
-## General ETH stuff
+My notes :)
 
-### Usefull links
-* [mystudies](https://www.lehrbetrieb.ethz.ch/myStudies/login.view)
-
-### Guides
-* [Internet Access](./atoms/internet.md)
+[Source (github)](https://github.com/lenoxos/ETHAN)
