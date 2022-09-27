@@ -1,6 +1,9 @@
 # Linear Algebra
 
+## Notes
 
-## exercise groups
+* [complex numbers](./atoms/complex-numbers.md)
 
-![gruppen](./images/linalggruppen.png)
+## Exercise groups
+
+![groups](./images/linalggruppen.png)
