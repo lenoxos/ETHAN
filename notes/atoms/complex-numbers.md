@@ -1,5 +1,7 @@
 # Complex numbers
 
+![summary](../images/complex-numbers.png)
+
 ## Notation
 
 ### Normalform
