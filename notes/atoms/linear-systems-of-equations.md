@@ -27,3 +27,13 @@ $$
 x_1 + 2x_2 = 4 \\
 x_1 + x_2 = 3 \\
 $$
+
+**mehrdeutig loesbar**
+> A LGS is **mehrdeutig loesbar** when is has more than one solution.
+e.g.
+$$
+x_1 + 2x_2 = 4 \\\\
+2x_1 + 4x_2 = 8 \\\\
+$$
+
+
