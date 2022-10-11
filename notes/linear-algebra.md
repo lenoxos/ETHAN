@@ -9,3 +9,8 @@
 ## Exercise groups
 
 [groups](./images/linalggruppen.png)
+
+## Exam
+
+* written
+* 6 one-sided A4 pages or 3 double sided handwritten or LaTeX

@@ -5,3 +5,7 @@ java v17
 ## Notes
 
 [EBNF](./atoms/ebnf.md)
+
+## Exam
+
+* idk
