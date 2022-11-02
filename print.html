@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ETH Atomic Notes</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="eth-atomic-notes.html">ETH Atomic Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Syllabus</li><li class="chapter-item expanded "><a href="introduction-to-programming.html"><strong aria-hidden="true">1.</strong> Introduction to Programming</a></li><li class="chapter-item expanded "><a href="algorithms-and-data-structures.html"><strong aria-hidden="true">2.</strong> Algorithms and Data Structures</a></li><li class="chapter-item expanded "><a href="linear-algebra.html"><strong aria-hidden="true">3.</strong> Linear Algebra</a></li><li class="chapter-item expanded "><a href="discrete-mathematics.html"><strong aria-hidden="true">4.</strong> Discrete Mathematics</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Atoms</li><li class="chapter-item expanded "><a href="atoms/complex-numbers.html"><strong aria-hidden="true">5.</strong> complex-numbers</a></li><li class="chapter-item expanded "><a href="atoms/ebnf.html"><strong aria-hidden="true">6.</strong> ebnf</a></li><li class="chapter-item expanded "><a href="atoms/fundamental-theory-of-algebra.html"><strong aria-hidden="true">7.</strong> fundamental-theory-of-algebra</a></li><li class="chapter-item expanded "><a href="atoms/internet.html"><strong aria-hidden="true">8.</strong> internet</a></li><li class="chapter-item expanded "><a href="atoms/linear-systems-of-equations.html"><strong aria-hidden="true">9.</strong> linear-systems-of-equations</a></li><li class="chapter-item expanded "><a href="atoms/row-echelon-form.html"><strong aria-hidden="true">10.</strong> row-echelon-form</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ETH Atomic Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="eth-atomic-notes"><a class="header" href="#eth-atomic-notes">ETH Atomic Notes</a></h1>
+<p>My notes :)</p>
+<p><a href="https://github.com/lenoxos/ETHAN">Source (github)</a></p>
+<h1 id="useful-links"><a class="header" href="#useful-links">Useful links</a></h1>
+<p><a href="https://exams.vis.ethz.ch/">exams</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-to-programming"><a class="header" href="#introduction-to-programming">Introduction to Programming</a></h1>
+<p>java v17</p>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<p><a href="./atoms/ebnf.html">EBNF</a></p>
+<h2 id="exercise"><a class="header" href="#exercise">Exercise</a></h2>
+<p>https://n.ethz.ch/~smithj/</p>
+<h2 id="exam"><a class="header" href="#exam">Exam</a></h2>
+<ul>
+<li>idk</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="algorithms-and-data-structures"><a class="header" href="#algorithms-and-data-structures">Algorithms and Data Structures</a></h1>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<p><a href="https://expert.ethz.ch/">code expert</a></p>
+<h2 id="exam-1"><a class="header" href="#exam-1">Exam</a></h2>
+<ul>
+<li>1 part written, 1 part programming</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linear-algebra"><a class="header" href="#linear-algebra">Linear Algebra</a></h1>
+<h2 id="notes-1"><a class="header" href="#notes-1">Notes</a></h2>
+<ul>
+<li><a href="./atoms/complex-numbers.html">complex numbers</a></li>
+<li><a href="./atoms/fundamental-theory-of-algebra.html">fundamental theory of algebra</a></li>
+<li><a href="./atoms/linear-systems-of-equations.html">linear systems of equations (LSE)</a></li>
+</ul>
+<h2 id="exercise-groups"><a class="header" href="#exercise-groups">Exercise groups</a></h2>
+<p><a href="./images/linalggruppen.png">groups</a></p>
+<h2 id="exam-2"><a class="header" href="#exam-2">Exam</a></h2>
+<ul>
+<li>written</li>
+<li>6 one-sided A4 pages or 3 double sided handwritten or LaTeX</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="discrete-mathematics"><a class="header" href="#discrete-mathematics">Discrete Mathematics</a></h1>
+<ul>
+<li><a href="./images/DM-lemma-2.1.png">lemma 2.1</a></li>
+<li><a href="./images/DM-lemma-6.1.png">lemma 6.1</a></li>
+</ul>
+<h2 id="exam-3"><a class="header" href="#exam-3">Exam</a></h2>
+<ul>
+<li>180 minutes</li>
+<li>written</li>
+<li>3 double sided handwritten A4 cheat sheet</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="complex-numbers"><a class="header" href="#complex-numbers">Complex numbers</a></h1>
+<p><img src="atoms/../images/complex-numbers.png" alt="summary" /></p>
+<h2 id="notation"><a class="header" href="#notation">Notation</a></h2>
+<h3 id="normalform"><a class="header" href="#normalform">Normalform</a></h3>
+<p>$z = x + yi$ with $x,y \in \mathbb{R}$ and $i$ being the <em>imaginary unit</em> $\sqrt{-1}$</p>
+<ul>
+<li>$x$ : <em>Real component</em> (Realteil) $Re(z)$</li>
+<li>$y$ : <em>Imaginary component</em> (Imaginärteil) $Im(z)$</li>
+</ul>
+<p>$$\mathbb{C} \coloneqq \lbrace x+yi \mid x,y \in \mathbb{R} \rbrace$$</p>
+<h3 id="polarform"><a class="header" href="#polarform">Polarform</a></h3>
+<p>$$
+\begin{align*}
+z &amp;= r (\cos{\theta} + i \sin{\theta}) \
+&amp;= re^{i\theta}
+\end{align*}
+$$</p>
+<p>$r$ is the <em>distance to the origin</em>
+i.e. the absolute value of $z$</p>
+<p>$r = |z| = \sqrt{x^2 + y^2}$</p>
+<p>$\theta$ is the <em>argument of $z$</em> i.e. The positive angle between the x-axis and the vector to point $z$.</p>
+<h3 id="complex-conjugate"><a class="header" href="#complex-conjugate">Complex conjugate</a></h3>
+<p>Let $z = x + iy$. Then the <em>complex conjugate</em> is $\bar{z} \coloneqq x-iy$</p>
+<p>$$
+\begin{align*}
+z\bar{z} &amp;= (x+iy)(x-iy) \
+&amp;= x^2 + y^2 \geq 0
+\end{align*}
+$$</p>
+<p>$\bar{\bar{z}} = z$</p>
+<h3 id="absolute-value"><a class="header" href="#absolute-value">Absolute value</a></h3>
+<p>$|z| \coloneqq \sqrt{z\bar{z}}$ is the <em>modulus</em> or <em>absolute value</em> of $z \in \mathbb{C}$</p>
+<p>$|z| = \sqrt{x^2 + y^2}$ or $|z|^2 = x^2 + y^2$</p>
+<p>$|z + w| \leq |z| + |w|$ (Dreiecksgleichung)</p>
+<h2 id="calcutating"><a class="header" href="#calcutating">Calcutating</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ebnf"><a class="header" href="#ebnf">EBNF</a></h1>
+<p>EBFN notation:</p>
+<ul>
+<li><em>E</em> - Extended</li>
+<li><em>B</em> - Backus</li>
+<li><em>N</em> - Naur / Normal</li>
+<li><em>F</em> - Form</li>
+</ul>
+<p>Describes the syntax of a language</p>
+<h2 id="notation-1"><a class="header" href="#notation-1">Notation</a></h2>
+<h3 id="rule"><a class="header" href="#rule">Rule</a></h3>
+<p>$LHS \Longleftarrow RHS$</p>
+<h3 id="choice"><a class="header" href="#choice">Choice</a></h3>
+<p>$A | B$</p>
+<h3 id="option"><a class="header" href="#option">Option</a></h3>
+<p>$[A]$</p>
+<h3 id="empty-symbol"><a class="header" href="#empty-symbol">Empty symbol</a></h3>
+<p>$\epsilon$</p>
+<h3 id="repetition"><a class="header" href="#repetition">Repetition</a></h3>
+<p>${A}$
+can be optional ($\epsilon$)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fundamental-theory-of-algebra"><a class="header" href="#fundamental-theory-of-algebra">Fundamental theory of algebra</a></h1>
+<p><img src="atoms/../images/fundamental-theory-of-algebra.png" alt="FSA" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="eth-internet"><a class="header" href="#eth-internet">ETH internet</a></h1>
+<h2 id="connecting-to-eth-internet"><a class="header" href="#connecting-to-eth-internet">Connecting to ETH internet</a></h2>
+<p><a href="https://unlimited.ethz.ch/display/itkb/Wi-Fi#WiFi-Students">IT knowledge base</a></p>
+<h3 id="linux"><a class="header" href="#linux">linux</a></h3>
+<p>The script might not work with <code>NetworkManager</code>.
+It will ask to create a conf file for wpa_supplicant instead.</p>
+<p>Here's how to use it:</p>
+<p>Kill <code>NetworkManager</code></p>
+<pre><code class="language-bash">systemctl stop NetworkManager
+</code></pre>
+<p>Check what interface you're using:</p>
+<pre><code class="language-bash">ip link
+</code></pre>
+<p>Which will output something like</p>
+<pre><code>1: lo: ...
+2: enp4s0: ...
+3: wlan0: ...
+...
+</code></pre>
+<p>You're gonna want to look for something like <code>wlan0</code> or <code>wlp1s0</code> or <code>wlp2s0f3</code> or the like.
+Copy the name of said interface. I will use <code>wlan0</code> as an example.</p>
+<p>Initialize <code>wpa_supplicant</code> (remember to substitute <code>wlan0</code> for your interface)</p>
+<pre><code class="language-bash">sudo wpa_supplicant -i wlan0 -c $HOME/.config/cat_installer/cat_installer.conf -B
+</code></pre>
+<p>Maybe wait like 5 seconds or so for it actually to complete.</p>
+<p>Finally, set up dhcp</p>
+<pre><code class="language-bash">sudo dhcpcd wlan0
+</code></pre>
+<p>Again, substitute <code>wlan0</code> for your interface name</p>
+<p>note: if you use <code>NetworkManager</code> to connect normally
+then you'll want to start the service again when you're done with the eth wlan,
+e.g:</p>
+<pre><code class="language-bash">systemctl start NetworkManager
+</code></pre>
+<h2 id="vpn"><a class="header" href="#vpn">VPN</a></h2>
+<p><a href="https://unlimited.ethz.ch/display/itkb/VPN">IT knowledge Base</a></p>
+<h3 id="linux-1"><a class="header" href="#linux-1">linux</a></h3>
+<p>Download super sketch shell script as described <a href="https://unlimited.ethz.ch/display/itkb/VPN">here</a></p>
+<p>Binary will be installed to <code>/opt/cisco/anyconnect</code></p>
+<p>Execute it and use <code>sslvpn.ethz.ch/student-net</code> to connect to</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linear-systems-of-equations-lse"><a class="header" href="#linear-systems-of-equations-lse">Linear Systems of Equations (LSE)</a></h1>
+<p><img src="atoms/../images/LGS.png" alt="LGS" /></p>
+<h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
+<p><strong>n-tuple</strong></p>
+<blockquote>
+<p>The solution of a LSE is an <strong>n-tuple</strong> $(x_1, ..., x_n)$
+of numbers that satisfy all $m$ equations of the system.</p>
+</blockquote>
+<p><strong>General solution</strong></p>
+<blockquote>
+<p>The set of solutions (Lösungsmenge) of the systems is called the <strong>general solution of the system</strong>.</p>
+</blockquote>
+<p><strong>equivalence</strong></p>
+<blockquote>
+<p>Two LSE are <strong>equivalent</strong> if they have the same set of solutions.</p>
+</blockquote>
+<p><strong>inconsistency</strong></p>
+<blockquote>
+<p>A LGS is <strong>inconsistent</strong> when it has no solution.</p>
+</blockquote>
+<p>e.g.
+$$
+x_1 + 2x_2 = 4 \\
+3x_1 + 6x_2 = 8 \\
+$$</p>
+<p><strong>eindeutig loesbar</strong></p>
+<blockquote>
+<p>A LGS is <strong>eindeutig loesbar</strong> when is has exactly one solution.</p>
+</blockquote>
+<p>e.g.
+$$
+x_1 + 2x_2 = 4 \\
+x_1 + x_2 = 3 \\
+$$</p>
+<p><strong>mehrdeutig loesbar</strong></p>
+<blockquote>
+<p>A LGS is <strong>mehrdeutig loesbar</strong> when is has more than one solution.</p>
+</blockquote>
+<p>e.g.
+$$
+x_1 + 2x_2 = 4 \\
+2x_1 + 4x_2 = 8 \\
+$$</p>
+<p>${(4-2\alpha,\alpha)|\alpha \in \mathbb{R}}$</p>
+<p><strong>homogeneous</strong> / <strong>inhomogeneous</strong></p>
+<blockquote>
+<p>A SLE is <strong>homogeneous</strong> when the right side is all zeros.
+i.e. $b_1 = b_2 = ... = b_m = 0$
+otherwise it is called <strong>inhomogeneous</strong></p>
+</blockquote>
+<p>note:
+A homogeneous LSE always has at least one solution $(x_1,x_2,...,x_n) = (0,0,...,0)$.
+This solution is called Nullloesung or trivial solution. All other solutions are called non trivial.</p>
+<p>note:
+A homogeneous LSE is always solvable. Either eindeutig (only trivial solution)
+or mehrdeutig (trivial + non trivial solutions)</p>
+<h2 id="related"><a class="header" href="#related">Related</a></h2>
+<ul>
+<li><a href="atoms/./row-echelon-form">row echelon form</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="row-echelon-form-zeilenstufenform"><a class="header" href="#row-echelon-form-zeilenstufenform">row echelon form (Zeilenstufenform)</a></h1>
+<p><img src="atoms/../images/zeilenstufenform.png" alt="Zeilenstufenform" />
+<img src="atoms/../images/zsf2.png" alt="zsf" />
+<img src="atoms/../images/vertraeglichkeit.png" alt="vertraeglichkeitsbedingungen" />
+<img src="atoms/../images/vtb2.png" alt="vtb" />
+<img src="atoms/../images/vtb3.png" alt="vtb" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
